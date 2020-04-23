@@ -7,6 +7,9 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
+//Set up mongoose connection
+var mongoose = require('mongoose');
+
 var app = express();
 
 // view engine setup
@@ -37,5 +40,12 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
+var mongoDB =
+  "imongodb+srv://jaiiparmar:admin7600@cluster0-gn50g.mongodb.net/local_library?retryWrites=true&w=majority";
+mongoose.connect(mongoDB, { useNewUrlParser: true });
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 module.exports = app;
