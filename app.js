@@ -42,10 +42,10 @@ app.use(function(err, req, res, next) {
 });
 
 
-var mongoDB =
-  "imongodb+srv://jaiiparmar:admin7600@cluster0-gn50g.mongodb.net/local_library?retryWrites=true&w=majority";
-mongoose.connect(mongoDB, { useNewUrlParser: true });
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+  var mongoDB =
+    "imongodb+srv://jaiiparmar:admin7600@cluster0-gn50g.mongodb.net/local_library?retryWrites=true&w=majority";
+  mongoose.connect(mongoDB, { useNewUrlParser: true });
+  var db = mongoose.connection;
+  db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 module.exports = app;
