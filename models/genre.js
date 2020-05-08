@@ -14,7 +14,6 @@ const GenreSchema = new Schema({
         type: String,
         require: true,
         max: 100,
-        
         min:3.
     },
 })
